@@ -1,0 +1,13 @@
+{
+  "name": "ResiliNet Pakistan",
+  "description": "World-class national disaster management and emergency response command system.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "GIS Intelligence",
+    "Real-time Emergency Monitoring",
+    "AI Disaster Prediction",
+    "Resource Allocation"
+  ]
+}

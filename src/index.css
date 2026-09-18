@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emergency-red: #ff4d4f;
+  --color-alert-amber: #ffb020;
+  --color-safe-green: #22c55e;
+  --color-electric-cyan: #00c2ff;
+  
+  --color-bg-dark: #0a0a0c;
+  --color-panel-dark: #121216;
+  --color-border-dark: #1e1e24;
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-slate-100 font-sans antialiased overflow-hidden;
+  }
+}
+
+@layer components {
+  .command-panel {
+    @apply bg-panel-dark border border-border-dark shadow-xl backdrop-blur-md transition-all duration-300;
+  }
+  
+  .emergency-pulse {
+    @apply relative flex h-3 w-3;
+  }
+  
+  .emergency-pulse .ping {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-emergency-red opacity-75;
+  }
+  
+  .emergency-pulse .dot {
+    @apply relative inline-flex rounded-full h-3 w-3 bg-emergency-red;
+  }
+
+  .cyan-glow {
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.15);
+  }
+
+  .grid-lines {
+    background-image: linear-gradient(rgba(30, 30, 36, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 36, 0.4) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
+
+/* Custom scrollbar for data-dense panels */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border-dark rounded-full hover:bg-electric-cyan/30;
+}
